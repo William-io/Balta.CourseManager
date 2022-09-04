@@ -1,0 +1,104 @@
+
+Olá, querido candidato, balta aqui... Espero que esteja tudo bem por aí!
+
+Estou enviando este E-mail por conta do seu cadastro no processo seletivo aqui para o balta.io, peço que leia atentamente este E-mail, pois tenho boas notícias para você!
+
+Antes de mais nada, quero agradecer o seu tempo. Recebemos diversas submissões de diversos níveis técnicos e nesta primeira etapa, você foi um dos 23 selecionados.
+
+Próximos Passos
+Eu acredito que a programação é uma forma que temos de nos expressar, e por este motivo, não tem código errado ou certo.
+
+Dito isto, acredito que a melhor forma de nos conhecermos é trocando visões sobre código e desta forma eu quero te convidar para um desafio.
+
+A ideia é criar uma aplicação simples, porém funcional, do começo ao fim, com publicação no Azure a partir do GitHub.
+Entenda que o objetivo não é ter seu código "julgado" e sim testar sua capacidade de tocar algo do começo ao fim.
+
+Se você topar este desafio (Descrito abaixo), vamos agendar um bate papo de 15 a 30 minutos para nos conhecermos e você poder explicar seu código.
+E aí, o que acha?
+
+DESAFIO
+Prazo: Segunda-Feira, 05 de Setembro de 2022 até às 23:59
+OBS:. Sim, para fins de avaliação o prazo foi propositalmente colocado nesta data.
+OBS 2:. Não, nós não trabalhamos na correria aqui 😄
+
+1 - Criação da Aplicação
+Você precisa criar uma aplicação Web com ASP.NET 6, Entity Framework e SQLite que contenha o seguinte:
+
+    Cadastro e Login utilizando ASP.NET Identity
+    Cadastro de [curso] contendo os seguintes campos
+        Título
+        Tag (Número de 4 dígitos)
+        Sumário
+        Duração em minutos => int 
+        
+        [Módulos] == Session: 1 - "Introducao" 
+            Título do módulo
+            Descrição do módulo
+            Ordem que será exibido
+           - Aulas [Entidade] == "Preparar o ambiente" .title .descrition  /aulas
+                Título da aula
+                Descrição da aula
+                URL do vídeo da aula
+    Visualização dos cursos
+        Lista simples de todos os cursos  / GetAll
+    Detalhes do curso
+        Exibir os detalhes de um curso    /GetById
+    Visualização de aula
+        Visualizar alguma aula de um curso /curso{id}/modulo{id}/aula{id}
+        
+        
+        [Curso] - ASP.NET 7, Faça sua API Robusta
+        [Modulos] - Preparando Ambiente
+        		"Aprenda a organizar todo ambiente, evitando dor de cabeça"
+        		"http://curso001.com.br
+
+2 - Publicação
+Você deve subir o código para o GitHub e mediante o uso de um GitHub Action, fazer a publicação desta aplicação para o Azure (Tier Gratuita - WebApp)
+https://azure.microsoft.com/pt-br/free/
+
+3 - Submissão dos resultados
+Você deve retornar este E-mail com a URL do repositório no GitHub e a URL da aplicação publicada no Azure.
+
+COMO SERÁ A AVALIAÇÃO
+👉 Primeira Etapa - Blind Test
+Na primeira etapa, eu vou embaralhar as URLs das aplicações publicadas e acessá-las uma a uma, avaliando os seguintes pontos:
+
+    Usabilidade
+        Facilidade de uso
+        Pensamento de usuário
+    Bugs
+    Features
+    Design
+    Performance
+
+👉 Segunda Etapa - Revisão de Código
+Na segunda etapa, vou dar uma espiada no código fonte para ter uma ideia de como foi implementado a aplicação.
+
+IMPORTANTE
+O foco é o resultado final, eu não vou julgar NENHUM código, até porque o tempo é curto. A primeira etapa tem um peso muito maior do que esta.
+
+Vamos começar?
+
+Desde já, muito obrigado e qualquer dúvida é só retornar este E-mail!
+
+Abraços,
+
+👉 Receba os conteúdos técnicos do balta.io direto em seu E-mail
+
+--
+André Baltieri
+Microsoft MVP - Visual Studio & Development Technologies
+
+CEO - balta.io
+andre@balta.io
+
+
+
+
+
+Curso
+    ASP.NET, CRIE UM API .NET 7
+        Modulo
+            Seção: 1 - Introdução
+                Aula
+                    1.1 - Como funciona a API 
