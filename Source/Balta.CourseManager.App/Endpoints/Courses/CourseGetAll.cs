@@ -1,3 +1,4 @@
+using System.Linq;
 using Balta.CourseManager.App.Infrastructure;
 
 namespace Balta.CourseManager.App.Endpoints.Courses;
@@ -15,14 +16,14 @@ public class CourseGetAll
         var courses = context.Courses.ToList();
 
         var response = courses.Select(c => new CourseResponse
-        {
-            //Retorna ID
-            Title = c.Title,
-            Summary = c.Summary,
-            Tag = c.Tag,
-            DurationInMinutes = c.DurationInMinutes,
-            Availability = c.Availability
-        });
+        (
+            c.Id,
+            c.Title,
+            c.Summary,
+            c.Tag,
+            c.DurationInMinutes,
+            c.Availability
+        ));
 
         return Results.Ok(courses);
     }

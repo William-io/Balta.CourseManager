@@ -1,0 +1,28 @@
+using Balta.CourseManager.App.Domain.Courses;
+using Balta.CourseManager.App.Infrastructure;
+
+namespace Balta.CourseManager.App.Endpoints.Learns;
+
+public class LearnPost
+{
+    public static string Template => "/learns";
+
+    public static string[] Methods => new string[] { HttpMethod.Post.ToString() };
+
+    public static Delegate Handle => Action;
+
+    public static IResult Action(LearnRequest learnRequest, DataContext context)
+    {
+        // var adicionarAulaNoModulo = context.Modules.FirstOrDefault(c => c.Id == learnRequest.ModuleId);
+        var learn = new Learn(learnRequest.Title, learnRequest.Description, learnRequest.Url);
+
+        if (!learn.IsValid)
+            return Results.ValidationProblem(learn.Notifications.ConvertProblemReporting());
+
+
+        context.Learns.Add(learn);
+        context.SaveChanges();
+
+        return Results.Created($"/learns/{learn.Id}", learn.Id);
+    }
+}

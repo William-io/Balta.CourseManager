@@ -1,0 +1,4 @@
+namespace Balta.CourseManager.App.Endpoints.Learns
+{
+    public record LearnRequest(string Title, string Description, string Url, Guid ModuleId);
+}
