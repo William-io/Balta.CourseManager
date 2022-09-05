@@ -1,5 +1,6 @@
 using Balta.CourseManager.App.Domain.Courses;
 using Balta.CourseManager.App.Infrastructure;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Balta.CourseManager.App.Endpoints.Courses;
 
@@ -13,13 +14,12 @@ public class CoursePost
 
     public static IResult Action(CourseRequest courseRequest, DataContext context)
     {
-        var course = new Course
-        {
-            Title = courseRequest.Title,
-            Summary = courseRequest.Summary,
-            Tag = courseRequest.Tag,
-            DurationInMinutes = courseRequest.DurationInMinutes
-        };
+        // var module = context.Modules.FirstOrDefault(m => m.Id == courseRequest.ModuleId);
+        var course = new Course(courseRequest.Title, courseRequest.Summary, courseRequest.Tag, courseRequest.DurationInMinutes);
+
+        if (!course.IsValid)
+            return Results.ValidationProblem(course.Notifications.ConvertProblemReporting());
+
 
         context.Courses.Add(course);
         context.SaveChanges();

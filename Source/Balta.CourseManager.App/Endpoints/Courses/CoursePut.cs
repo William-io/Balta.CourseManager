@@ -6,7 +6,7 @@ namespace Balta.CourseManager.App.Endpoints.Courses;
 
 public class CoursePut
 {
-    public static string Template => "/courses/{id}";
+    public static string Template => "/courses/{id:guid}";
 
     public static string[] Methods => new string[] { HttpMethod.Put.ToString() };
 
@@ -15,11 +15,12 @@ public class CoursePut
     public static IResult Action([FromRoute] Guid id, CourseRequest courseRequest, DataContext context)
     {
         var course = context.Courses.Where(c => c.Id == id).FirstOrDefault();
-        course.Title = courseRequest.Title;
-        course.Summary = courseRequest.Summary;
-        course.Tag = courseRequest.Tag;
-        course.DurationInMinutes = courseRequest.DurationInMinutes;
-        course.Availability = courseRequest.Availability; //true or false
+
+        if (course == null)
+            return Results.NotFound();
+
+        if (!course.IsValid)
+            return Results.ValidationProblem(course.Notifications.ConvertProblemReporting());
 
         context.SaveChanges();
 

@@ -40,11 +40,11 @@ Você precisa criar uma aplicação Web com ASP.NET 6, Entity Framework e SQLite
                 Descrição da aula
                 URL do vídeo da aula
     Visualização dos cursos
-        Lista simples de todos os cursos  / GetAll
+        Lista simples de todos os cursos 
     Detalhes do curso
-        Exibir os detalhes de um curso    /GetById
+        Exibir os detalhes de um curso    
     Visualização de aula
-        Visualizar alguma aula de um curso /curso{id}/modulo{id}/aula{id}
+        Visualizar alguma aula de um curso 
         
         
         [Curso] - ASP.NET 7, Faça sua API Robusta

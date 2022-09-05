@@ -1,14 +1,33 @@
+using Flunt.Validations;
+
 namespace Balta.CourseManager.App.Domain.Courses;
 
 public class Course : Entity
 {
-    public string Title { get; set; }
-    public string Summary { get; set; }
-    public string Tag { get; set; }
-    public double DurationInMinutes { get; set; }
-    public bool Availability { get; set; } = true;
-    public ICollection<Module> Modules { get; set; }
-}
+    public Course(string title, string summary, string tag, double durationInMinutes)
+    {
+        Title = title;
+        Summary = summary;
+        Tag = tag;
+        DurationInMinutes = durationInMinutes;
+        Availability = true;
 
-//Curso ADMiN
-//Modulo 1,3,4,5
+        Validating();
+
+    }
+
+    //FLUNT
+    private void Validating()
+    {
+        var contract = new Contract<Course>()
+                    .IsNotNullOrEmpty(Title, "Title", "Titulo não pode ser vazio")
+                    .IsGreaterOrEqualsThan(Title, 5, "Title", "Titulo precisa ser maior que 3 caracteres");
+        AddNotifications(contract);
+    }
+
+    public string Title { get; private set; }
+    public string Summary { get; private set; }
+    public string Tag { get; private set; }
+    public double DurationInMinutes { get; private set; }
+    public bool Availability { get; private set; } = true;
+}
